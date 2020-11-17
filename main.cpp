@@ -26,11 +26,14 @@ int main(int argc, char const *argv[])
         cout << bstree->isBalanced();
         break;  
     case '4':
-        bstree->remove(bstree->minValue());
-        cout << bstree->size();
+        cin>>val;
+        bstree->remove(val);
+        cout << bstree->height();
         break;
-    case '5':
-        bstree->remove(bstree->maxValue());
+    case '5':        
+        bstree->remove(bstree->minValue());
+        bstree->remove(bstree->minValue());
+        bstree->remove(bstree->minValue());
         cout << bstree->height();
         break;    
     default:
