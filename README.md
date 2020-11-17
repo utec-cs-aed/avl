@@ -2,7 +2,7 @@
 
 # AVL Tree
 
-- Modificar los algoritmos de inserción, balanceo y rotaciones para mantener actualizado la altura de cada subarbol en el atributo height. De este modo mantenemos una complejidad log(n) en la inserción y eliminación.
+- Modificar los algoritmos de inserción, balanceo y rotaciones, para mantener actualizado la altura de cada nodo en el atributo height. De este modo mantenemos una complejidad log(n) en la inserción y eliminación.
 
 ```c++
 struct NodeBT {
@@ -13,5 +13,5 @@ struct NodeBT {
 };
 ```
 
-- Implementar la función de eliminación que mantenga el árbo balanceado.
+- Implementar la función de eliminación que mantenga el árbol siempre balanceado.
 
