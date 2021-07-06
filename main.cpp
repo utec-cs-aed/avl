@@ -1,44 +1,33 @@
 #include <iostream>
 #include "avl.h"
+#include "tester.h"
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    AVLTree<int> *bstree = new AVLTree<int>();
-    int n, val;
-    cin>>n;
-    for (int i = 0; i < n; i++)
-    {
-        cin>>val;
-        bstree->insert(val);
-    }
+    AVLTree<int> *avl = new AVLTree<int>();
+
+    avl->insert(35);
+    avl->insert(30);
+    avl->insert(27);
+    avl->insert(11);
+    avl->insert(16);
+    avl->insert(100);
+    avl->insert(50);
+    avl->insert(91);
+    avl->insert(73);
+    avl->insert(5);
+
+    ASSERT(avl->isBalanced() == true, "The avl is not working");
+    ASSERT(avl->height() == 3, "The avl is not working");
+    ASSERT(avl->getPreOrder() == "30 16 11 5 27 50 35 91 73 100 ", "The avl is not working");
+
+    avl->remove(30);
+    avl->remove(35);
+    avl->remove(100);
+    ASSERT(avl->height() == 2, "The avl is not working");
+
+    ASSERT(avl->getPreOrder() == "27 11 5 16 73 50 91 ", "The avl is not working");
     
-    char option = argv[1][0];
-    switch (option)
-    {    
-    case '1':
-        bstree->displayPreOrder();
-        break;    
-    case '2':
-        cout << bstree->height();
-        break;  
-    case '3':
-        cout << bstree->isBalanced();
-        break;  
-    case '4':
-        cin>>val;
-        bstree->remove(val);
-        cout << bstree->height();
-        break;
-    case '5':        
-        bstree->remove(bstree->minValue());
-        bstree->remove(bstree->minValue());
-        bstree->remove(bstree->minValue());
-        cout << bstree->height();
-        break;    
-    default:
-        cout << "option not found";
-        break;
-    }
-    cout<<endl;
+    return 0;
 }
